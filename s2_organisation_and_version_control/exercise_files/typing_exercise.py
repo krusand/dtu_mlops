@@ -1,4 +1,4 @@
-from typing import Callable
+from typing import Callable, Any
 import torch
 from torch import nn
 from torch import Tensor
@@ -37,7 +37,7 @@ class Network(nn.Module):
         return nn.functional.log_softmax(x, dim=1)
 
 
-def validation(model: Network, testloader: torch.utils.data.DataLoader, criterion: torch.nn.modules.loss) -> tuple[float, float]:
+def validation(model: Network, testloader: torch.utils.data.DataLoader, criterion: Any) -> tuple[float, float]:
     """Validation pass through the dataset."""
     accuracy = 0
     test_loss = 0
@@ -58,7 +58,7 @@ def validation(model: Network, testloader: torch.utils.data.DataLoader, criterio
     return test_loss, accuracy
 
 
-def train(model: Network, trainloader: torch.utils.data.DataLoader, testloader: torch.utils.data.DataLoader, criterion: torch.nn.modules.loss, optimizer: torch.optim =None, epochs: int =5, print_every: int =40) -> None:
+def train(model: Network, trainloader: torch.utils.data.DataLoader, testloader: torch.utils.data.DataLoader, criterion: Any, optimizer: Any =None, epochs: int =5, print_every: int =40) -> None:
     """Train a PyTorch Model."""
     if optimizer is None:
         optimizer = torch.optim.Adam(model.parameters(), lr=1e-2)

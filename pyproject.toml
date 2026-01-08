@@ -34,6 +34,10 @@ dependencies = [
 ]
 
 [dependency-groups]
+dev = [
+    "mypy>=1.18.2",
+    "ruff>=0.14.9",
+]
 exercises = [
   "cookiecutter>=2.6",
   "coverage>=7.11.3",

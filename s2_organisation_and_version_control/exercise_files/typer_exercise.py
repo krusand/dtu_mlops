@@ -3,8 +3,11 @@ from sklearn.metrics import accuracy_score, classification_report
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.svm import SVC
+import typer
 
+app = typer.Typer()
 
+@app.command
 def train():
     """Train and evaluate the model."""
     # Load the dataset
@@ -40,4 +43,4 @@ def train():
 
 # this "if"-block is added to enable the script to be run from the command line
 if __name__ == "__main__":
-    train()
+    app()
